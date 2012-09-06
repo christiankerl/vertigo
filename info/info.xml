@@ -4,7 +4,7 @@
         <name>Vertigo: Versatile Extensions for Robust Inference using Graph Optimization</name>
 
         <author>
-		<name>Niko Sünderhauf</name>
+		<name>Niko Suenderhauf</name>
 		<url>http://www.tu-chemnitz.de/~niko</url>
 	</author>
        
@@ -55,14 +55,14 @@
 
 	<paper>
 		<title>Switchable Constraints for Robust Pose Graph SLAM</title>
-		<authorlist>Niko Sünderhauf, and Peter Protzel</authorlist>
+		<authorlist>Niko Suenderhauf, and Peter Protzel</authorlist>
 		<publishedin>In Proc. of IEEE International Conference on Intelligent Robots and Systems (IROS), Vilamoura, Portugal.</publishedin>
 		<year>2012</year>
 		<url>http://www.tu-chemnitz.de/etit/proaut/mitarbeiter/rsrc/IROS12-switchableConstraints.pdf</url>
 	</paper>
 	<paper>
 		<title>Robust Optimization for Simultaneous Localization and Mapping</title>
-		<authorlist>Niko Sünderhauf</authorlist>
+		<authorlist>Niko Suenderhauf</authorlist>
 		<publishedin>PhD Thesis, Chemnitz University of Technology</publishedin>
 		<year>2012</year>
 		<url>http://nbn-resolving.de/urn:nbn:de:bsz:ch1-qucosa-86443</url>
@@ -72,16 +72,16 @@
 	<license>aperitif is licenced under GPL Version 3.</license>
 
 	<furthermore>
-	  [1] Rainer Kümmerle, Giorgio Grisetti, Hauke Strasdat, Kurt Konolige, and
+	  [1] Rainer Kuemmerle, Giorgio Grisetti, Hauke Strasdat, Kurt Konolige, and
 	  Wolfram Burgard: g2o: A General Framework for Graph Optimization, IEEE
 	  International Conference on Robotics and Automation (ICRA), 2011 
 	  Available online: http://openslam.org/g2o.html
 
-	  [2] Sünderhauf, N., Protzel, P. (2012). Switchable Constraints for Robust Pose
+	  [2] Suenderhauf, N., Protzel, P. (2012). Switchable Constraints for Robust Pose
 	  Graph SLAM. Proc. of IEEE International Conference on Intelligent Robots and
 	  Systems (IROS), Vilamoura, Portugal.  
 
-	  [3] Sünderhauf, N. (2012). Robust Optimization for Simultaneous Localization and
+	  [3] Suenderhauf, N. (2012). Robust Optimization for Simultaneous Localization and
 	  Mapping. PhD Thesis, Chemnitz University of Technology. 
 
 	  [4] Olson, E. and Agarwal, P. (2012). Inference on networks of mixtures for
