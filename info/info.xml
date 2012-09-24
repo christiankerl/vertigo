@@ -42,7 +42,9 @@
 	Linux/Unix, cmake, gcc
 	</requirement>
         <requirement>
-          g2o, gtsam >= 2.0 (either one or both of them)
+          g2o, gtsam (either one or both of them)
+          Vertigo has been tested with gtsam 2.0 and g2o rev.19 (SVN on
+          openslam.org)
         </requirement>
 
 	<requirement>
