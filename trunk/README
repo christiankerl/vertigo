@@ -48,7 +48,7 @@ Dependencies:
   Either one or both of g2o and gtsam. 
   Vertigo has been tested with:
   - gtsam 2.0.0
-  - g2o rev.19 (SVN from openslam.org)
+  - g2o (Github commit RainerKuemmerle@f31408917be31407c29649ddcaf3025de43b367e)
  
 
 All other dependencies are shared with g2o or gtsam. If you can compile them,
