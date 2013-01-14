@@ -18,11 +18,12 @@ IF(UNIX)
   MESSAGE(STATUS "Searching for g2o ...")
 
   FIND_PATH(G2O_INCLUDE_DIR
-    NAMES core math_groups types  
+    NAMES "g2o/core" "g2o/types"
     PATHS
     /usr/local
     /usr
-    PATH_SUFFIXES include/g2o include
+    ENV G2O_ROOT
+    PATH_SUFFIXES include
   )
   IF (G2O_INCLUDE_DIR)
     MESSAGE(STATUS "Found g2o headers in: ${G2O_INCLUDE_DIR}")
@@ -33,6 +34,7 @@ IF(UNIX)
     PATHS
     /usr/local
     /usr
+    ENV G2O_ROOT
     PATH_SUFFIXES lib
   )
   FIND_LIBRARY(G2O_CLI_LIBRARIES 
@@ -40,6 +42,7 @@ IF(UNIX)
     PATHS
     /usr/local
     /usr
+    ENV G2O_ROOT
     PATH_SUFFIXES lib
   )
 
@@ -48,6 +51,7 @@ IF(UNIX)
     PATHS
     /usr/local
     /usr
+    ENV G2O_ROOT
     PATH_SUFFIXES lib
   )
   
@@ -56,6 +60,7 @@ IF(UNIX)
     PATHS
     /usr/local
     /usr
+    ENV G2O_ROOT
     PATH_SUFFIXES lib
   )
 
