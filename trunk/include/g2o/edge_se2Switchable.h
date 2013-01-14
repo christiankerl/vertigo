@@ -3,6 +3,9 @@
  *
  *  Created on: 13.07.2011
  *      Author: niko
+ *
+ *  Updated on: 14.01.2013
+ *      Author: Christian Kerl <christian.kerl@in.tum.de>
  */
 
 #ifndef EDGE_SE2SWITCHABLE_H_
@@ -22,6 +25,14 @@ class EdgeSE2Switchable : public g2o::BaseMultiEdge<3, g2o::SE2>
     void computeError();
     void linearizeOplus();
 
+
+    virtual void setMeasurement(const g2o::SE2& m){
+      _measurement = m;
+      _inverseMeasurement = m.inverse();
+    }
+
+    protected:
+      g2o::SE2 _inverseMeasurement;
 };
 
 

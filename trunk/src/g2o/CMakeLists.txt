@@ -24,7 +24,7 @@ set(SOURCEFILES
   types_g2o_robust.cpp
   edge_switchPrior.cpp
   edge_se2Switchable.cpp
-  edge_se2MaxMixture.cpp
+#  edge_se2MaxMixture.cpp
   edge_se3Switchable.cpp
   vertex_switchLinear.cpp
 )

@@ -3,16 +3,19 @@
  *
  *  Created on: 17.10.2011
  *      Author: niko
+ *
+ *  Updated on: 14.01.2013
+ *      Author: Christian Kerl <christian.kerl@in.tum.de>
  */
 
 #ifndef EDGE_SE3SWITCHABLE_H_
 #define EDGE_SE3SWITCHABLE_H_
 
-#include "g2o/types/slam3d/vertex_se3_quat.h"
+#include "g2o/types/slam3d/vertex_se3.h"
 #include "g2o/core/base_multi_edge.h"
 #include "g2o/core/hyper_graph_action.h"
 
-class EdgeSE3Switchable : public g2o::BaseMultiEdge<6, g2o::SE3Quat>
+class EdgeSE3Switchable : public g2o::BaseMultiEdge<6, Eigen::Isometry3d>
 {
   public:
     EdgeSE3Switchable();
@@ -22,6 +25,13 @@ class EdgeSE3Switchable : public g2o::BaseMultiEdge<6, g2o::SE3Quat>
     void computeError();
     void linearizeOplus();
 
+    virtual void setMeasurement(const Eigen::Isometry3d& m){
+      _measurement = m;
+      _inverseMeasurement = m.inverse();
+    }
+
+  protected:
+    Eigen::Isometry3d _inverseMeasurement;
 };
 
 

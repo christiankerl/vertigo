@@ -3,7 +3,11 @@ using namespace std;
 
     bool EdgeSwitchPrior::read(std::istream &is)
     {
-      is >> measurement();
+      double new_measurement;
+      is >> new_measurement;
+
+      setMeasurement(new_measurement);
+
       is >> information()(0,0);
       return true;
     }

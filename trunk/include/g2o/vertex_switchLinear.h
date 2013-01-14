@@ -3,6 +3,9 @@
  *
  *  Created on: 17.10.2011
  *      Author: niko
+ *
+ *  Updated on: 14.01.2013
+ *      Author: Christian Kerl <christian.kerl@in.tum.de>
  */
 
 
@@ -19,9 +22,9 @@
     public:
       VertexSwitchLinear() { setToOrigin(); };
 
-      virtual void setToOrigin();
+      virtual void setToOriginImpl();
 
-      virtual void oplus(double* update);
+      virtual void oplusImpl(const double* update);
 
       virtual bool read(std::istream& is);
       virtual bool write(std::ostream& os) const;

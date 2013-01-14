@@ -3,6 +3,9 @@
  *
  *  Created on: 17.10.2011
  *      Author: niko
+ *
+ *  Updated on: 14.01.2013
+ *      Author: Christian Kerl <christian.kerl@in.tum.de>
  */
 
 #include "vertex_switchLinear.h"
@@ -24,7 +27,7 @@ using namespace std;
       return os.good();
     }
 
-    void VertexSwitchLinear::setToOrigin()
+    void VertexSwitchLinear::setToOriginImpl()
     {
       _x=0;
       _estimate=_x;
@@ -38,7 +41,7 @@ using namespace std;
     }
 
 
-    void VertexSwitchLinear::oplus(double* update)
+    void VertexSwitchLinear::oplusImpl(const double* update)
     {
       _x += update[0];
 

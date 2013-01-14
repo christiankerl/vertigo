@@ -3,6 +3,9 @@
  *
  *  Created on: 13.07.2011
  *      Author: niko
+ *
+ *  Updated on: 14.01.2013
+ *      Author: Christian Kerl <christian.kerl@in.tum.de>
  */
 
 #include "edge_se2Switchable.h"
@@ -27,8 +30,9 @@ bool EdgeSE2Switchable::read(std::istream& is)
   {
     Vector3d p;
     is >> p[0] >> p[1] >> p[2];
-    measurement().fromVector(p);
-    inverseMeasurement() = measurement().inverse();
+    setMeasurement(g2o::SE2(p));
+    _inverseMeasurement = measurement().inverse();
+
     for (int i = 0; i < 3; ++i)
       for (int j = i; j < 3; ++j) {
         is >> information()(i, j);
@@ -69,13 +73,12 @@ void EdgeSE2Switchable::linearizeOplus()
     _jacobianOplus[1](1, 0) =-si; _jacobianOplus[1](1, 1)= ci; _jacobianOplus[1](1, 2)= 0;
     _jacobianOplus[1](2, 0) = 0;  _jacobianOplus[1](2, 1)= 0;  _jacobianOplus[1](2, 2)= 1;
 
-    const g2o::SE2& rmean = inverseMeasurement();
+    const g2o::SE2& rmean = _inverseMeasurement;
     Matrix3d z = Matrix3d::Zero();
     z.block<2, 2>(0, 0) = rmean.rotation().toRotationMatrix();
     z(2, 2) = 1.;
     _jacobianOplus[0] = z * _jacobianOplus[0];
     _jacobianOplus[1] = z * _jacobianOplus[1];
-
 
 
     _jacobianOplus[0]*=vSwitch->estimate();
@@ -85,10 +88,8 @@ void EdgeSE2Switchable::linearizeOplus()
     // derivative w.r.t switch vertex
     _jacobianOplus[2].setZero();
     g2o::SE2 delta = _inverseMeasurement * (vi->estimate().inverse()*vj->estimate());
-    _jacobianOplus[2] = delta.toVector() * vSwitch->gradient();
-  
+    _jacobianOplus[2] = delta.toVector() * vSwitch->gradient();  
 }
-
 
 // ================================================
 void EdgeSE2Switchable::computeError()
